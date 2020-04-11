@@ -1,6 +1,5 @@
 package com.example.demo.events;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.PayloadApplicationEvent;
@@ -8,30 +7,31 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.model.Employee;
+import com.example.demo.model.Student;
 
+/*Application Publish Event to publish messages to rabbit mq
+ * 
+ * @author Harish Gaddameedi
+ * */
 @Component
-@EnableBinding(EmployeeRegistrationSource.class)
+@EnableBinding(PersonRegistrationSource.class)
 public class EventOutput implements ApplicationListener<PayloadApplicationEvent<?>> {
 
-	EmployeeRegistrationSource employeeRestrationSource;
+	PersonRegistrationSource personRestrationSource;
 
-	public EventOutput(EmployeeRegistrationSource employeeRegistrationSource) {
-		this.employeeRestrationSource = employeeRegistrationSource;
+	public EventOutput(PersonRegistrationSource personRegistrationSource) {
+		this.personRestrationSource = personRegistrationSource;
 	}
 
 	@Override
 	public void onApplicationEvent(PayloadApplicationEvent<?> event) {
 		Object obj = event.getPayload();
-
-		if (obj instanceof Employee) {
-			Employee message = (Employee) obj;
-			publishApplicationEvent(message);
-		}
+		publishApplicationEvent(obj);
 	}
 
-	public void publishApplicationEvent(Employee message) {
+	private void publishApplicationEvent(Object object) {
 		System.out.println("start publishApplicationEvent method");
-		employeeRestrationSource.employeeRegistration().send(MessageBuilder.withPayload(message).build());
+		personRestrationSource.personRegistrationProducer().send(MessageBuilder.withPayload(object).build());
 		System.out.println("end publishApplicationEvent method");
 	}
 

@@ -5,28 +5,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
 
-	private String empName;
-	private String empID;
+	private String employeeName;
+	private String employeeID;
 
-	public String getEmpName() {
-		return empName;
+	public String getEmployeeName() {
+		return employeeName;
 	}
 
-	public void setEmpName(String empName) {
-		this.empName = empName;
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 
-	public String getEmpID() {
-		return empID;
+	public String getEmployeeID() {
+		return employeeID;
 	}
 
-	public void setEmpID(String empID) {
-		this.empID = empID;
+	public void setEmployeeID(String employeeID) {
+		this.employeeID = employeeID;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [empName=" + empName + ", empID=" + empID + "]";
+		return "Employee [employeeName=" + employeeName + ", employeeID=" + employeeID + "]";
 	}
 
 }

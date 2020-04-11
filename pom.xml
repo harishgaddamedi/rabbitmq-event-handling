@@ -9,11 +9,11 @@
 		<version>2.2.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>event-handling</artifactId>
+	<groupId>com.ilovejava</groupId>
+	<artifactId>rabbitmq-event-handling</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>event-handling</name>
-	<description>Demo project for Spring Boot</description>
+	<name>rabbitmq-event-handling</name>
+	<description>RabbitMq Demo using for Spring Boot and Spring Cloud Stream</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
